@@ -15,34 +15,34 @@ composer require flc/dysms
 
 ## 使用
 <?php
-	use Flc\Dysms\Client;
-	use Flc\Dysms\Request\SendSms;
+use Flc\Dysms\Client;
+use Flc\Dysms\Request\SendSms;
 	
 
-	$config = [
-   	 'accessKeyId'    => 'LTAIbVA2LRQ1tULr',
-    	'accessKeySecret' => 'ocS48RUuyBPpQHsfoWokCuz8ZQbGxl',
-	];
+$config = [
+   'accessKeyId'    => 'LTAIbVA2LRQ1tULr',
+   'accessKeySecret' => 'ocS48RUuyBPpQHsfoWokCuz8ZQbGxl',
+  ];
 	
 	
-	$client  = new Client($config);
+$client  = new Client($config);
 	
-	$sendSms = new SendSms;
+$sendSms = new SendSms;
 	
-	$sendSms->setPhoneNumbers('1500000000');  //手机号
+$sendSms->setPhoneNumbers('1500000000');  //手机号
 	
-	$sendSms->setSignName('叶子坑');          //签名名称（在控制器后台可以看到）
+$sendSms->setSignName('叶子坑');          //签名名称（在控制器后台可以看到）
 	
-	$sendSms->setTemplateCode('SMS_77670013');   //模板code
+$sendSms->setTemplateCode('SMS_77670013');   //模板code
 	
-	$sendSms->setTemplateParam(['code' => rand(100000, 999999)]);  这个自动生成的六位数字必须保存起来， 然后作为验证（具体流程，看你的思路）
-	$sendSms->setOutId('demo');
+$sendSms->setTemplateParam(['code' => rand(100000, 999999)]);  这个自动生成的六位数字必须保存起来， 然后作为验证（具体流程，看你的思路）
+$sendSms->setOutId('demo');
 	
-	print_r($client->execute($sendSms));
+print_r($client->execute($sendSms));
 	
-	//调用成功则会返回一个对象：
-   //返回例子： 
-   stdClass Object ( [Message] => OK [RequestId] => 595370D6-4B72-4B81-BDFA-3A2CFF31FADE [BizId] => 598713726981087773^0 [Code] => OK )
+//调用成功则会返回一个对象：
+//返回例子： 
+stdClass Object ( [Message] => OK [RequestId] => 595370D6-4B72-4B81-BDFA-3A2CFF31FADE [BizId] => 598713726981087773^0 [Code] => OK )
 
 
 ## 支持
